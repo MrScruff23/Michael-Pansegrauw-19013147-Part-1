@@ -209,6 +209,7 @@ namespace Part_1
             }
         }
 
+        // record the direction the unit needs to move inorder to get closser to the unit
         public override Direction DirectionOfEnemy(Unit enemy)
         {
             int xdis = enemy.XPos - xPos;
