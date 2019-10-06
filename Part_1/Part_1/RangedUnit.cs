@@ -18,6 +18,7 @@ namespace Part_1
     */
     class RangedUnit : Unit
     {
+        // properties  to access variables
         public int XPos
         {
             get { return xPos; }
@@ -61,6 +62,8 @@ namespace Part_1
             get { return isAttacking; }
             set { isAttacking = value; }
         }
+
+        // constructor to assign variable values to atribute of the object
         public RangedUnit(int xPos, int yPos, double maxHealth, double attack, int range, int speed, int team)
         {
             base.xPos = xPos;
@@ -75,12 +78,14 @@ namespace Part_1
             base.symbol = "<>";
         }
 
+        // method to make the unit take damage
         public override void Combat(double damage)
         {
             health -= damage;
         }
 
-        public override bool DestroyUnit() // handles destruction and death of unit
+        // handles destruction and death of unit
+        public override bool DestroyUnit()
         {
             if (health <= 0)
             {
@@ -90,7 +95,8 @@ namespace Part_1
             return false;
         }
 
-        public override Unit FindClosestUnit(List<Unit> listOfUnits) // Finds the clossest enemy that is not on the same team as the unit
+        // Finds the clossest enemy that is not on the same team as the unit
+        public override Unit FindClosestUnit(List<Unit> listOfUnits)
         {
             int distance = -1;
             Unit enemy = null;
@@ -110,7 +116,8 @@ namespace Part_1
             return enemy;
         }
 
-        public override bool IsInRange(Unit u)// ddeturmines whether a unit is in range of the unit or not
+        // ddeturmines whether a unit is in range of the unit or not
+        public override bool IsInRange(Unit u)
         {
             try
             {

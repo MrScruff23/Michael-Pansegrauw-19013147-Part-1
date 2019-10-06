@@ -109,7 +109,7 @@ protected bool isAttacking;
                     "\nHealth\\MaxHealth : " + health + "\\" + maxHealth + 
                     "\nAttack : " + attack + 
                     "\nAttack Range : " + attackRange + 
-                    "\nTeam : " + team + 
+                    "\n+ Team : " + team + " +" +
                     "\nIs attacking : " + isAttacking);
                 return s;
             }
@@ -119,11 +119,15 @@ protected bool isAttacking;
             }
         }
 
+
+        // ajusts the unit's health points according to the amount of damage it takes
         public override void Combat(double damage)
         {
             health -= damage;
         }
 
+
+        // checks if the closest unit is with in the range of attack for the unit or not
         public override bool IsInRange(Unit u)
         {
             int distance = -1;
@@ -137,6 +141,7 @@ protected bool isAttacking;
             return (distance <= attackRange)? true: false;
         }
 
+        // checks for the clossest unit thatr is not in the same team as the unit
         public override Unit FindClosestUnit(List<Unit> listOfUnits)
         {
             int distance = -1;
@@ -157,6 +162,7 @@ protected bool isAttacking;
             return enemy;
         }
 
+        // record the direction the unit needs to move inorder to get closser to the unit
         public override Direction DirectionOfEnemy(Unit enemy)
         {
             int xdis = enemy.XPos - xPos;

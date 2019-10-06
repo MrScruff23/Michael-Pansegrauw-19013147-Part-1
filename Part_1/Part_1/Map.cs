@@ -8,6 +8,7 @@ using System.Windows.Forms;
 
 namespace Part_1
 {
+    // constructor to initialise the map class values
     class Map
     {
         public Unit[,] map = new Unit[20, 20];
@@ -29,6 +30,8 @@ namespace Part_1
         // Both the type of unit, as well as their X and Y position, should be randomised; 
         // Meelee: int xPos, int yPos, double maxHealth, double attack, int team
         // Ranged: int xPos, int yPos, double maxHealth, double attack, int team
+
+        // method returns a unit after creating it and assigning valuse to it
         public Unit CreateUnit(int team)
         {
             int xPos = rand.Next(0, 20);
@@ -53,6 +56,7 @@ namespace Part_1
             }
         }
 
+        // displays the units onto the GUI
         public void DisplayAllUnits()
         {
             int Ysize = Program.UI.grbMap.Height / 21;
@@ -74,6 +78,7 @@ namespace Part_1
             }
         }
 
+        // updates the position of the unit so it doesnt need to update the entire GUI
         public void UpDatePosition()
         {
             int Ysize = Program.UI.grbMap.Height / 20;
